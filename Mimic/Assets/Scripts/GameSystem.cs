@@ -13,6 +13,9 @@ public enum GameState
 
 public class GameSystem
 {
+    public const string DataResourcePath = "/Resources/DataResource/";
+    public const string DataResourceFormat = ".txt";
+
     public GameState gameState = GameState.None;
 
     private static GameSystem _instance;
@@ -31,5 +34,11 @@ public class GameSystem
     public void ChangeGameState(GameState state)
     {
         gameState = state;
+    }
+
+    public static string GetDataResourcePath(string filename)
+    {
+        string dataPath = Application.dataPath + DataResourcePath + filename + DataResourceFormat;
+        return dataPath;
     }
 }
